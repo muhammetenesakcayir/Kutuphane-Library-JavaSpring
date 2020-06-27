@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+            crossorigin="anonymous"></script>
+    <meta charset="utf-8"/>
+    <title>Kitap Listesi</title>
+</head>
+<body>
+<div class="table-responsive-xl">
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th></th>
+            <th scope="col">Kitap Adı</th>
+            <th></th>
+            <th scope="col">Kitap Alt Adı</th>
+            <th></th>
+            <th scope="col">Kitap Seri Adı</th>
+            <th></th>
+            <th scope="col">ISBN No</th>
+            <th></th>
+            <th scope="col">Yazar</th>
+            <th></th>
+            <th scope="col">Yayınevi</th>
+            <th></th>
+            <th scope="col">Açıklama</th>
+            <th scope="col">
+                <div class="text-right"><a class="btn btn-primary" href="/book">Geri</a></div>
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr bgcolor="#f5f5f5" th:each="book:${book}">
+            <td></td>
+            <td th:text="${book.bookName}">Kitap Adı</td>
+            <td></td>
+            <td th:text="${book.bookSubtitle}">Alt Adı</td>
+            <td></td>
+            <td th:text="${book.bookSerialName}">Seri Adı</td>
+            <td></td>
+            <td th:text="${book.isbnNo}">ISBN No</td>
+            <td></td>
+            <td th:text="${book.author.authorName +'&nbsp'+ book.author.authorSurname}">Yazar</td>
+            <td></td>
+            <td th:text="${book.publisher.publisherName}">Yayınevi</td>
+            <td></td>
+            <td th:text="${book.explanation}">Açıklama</td>
+            <td></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
