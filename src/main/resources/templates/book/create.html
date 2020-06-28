@@ -42,13 +42,13 @@
                         <td><input type="text" th:field="*{explanation}"/></td>
                     </tr>
                     <tr>
-                    <td>Yazar:</td><td><select th:field="*{author.id}">
+                    <td>Yazar:</td><td><select required th:field="*{author.id}">
                         <option th:each="author : ${authorList}"
                                 th:value="${author.id}"
                                 th:text="${author.authorName} +'&nbsp'+ ${author.authorSurname}"></option>
                     </select></td></tr>
                     <tr>
-                        <td>Yayın Evi:</td><td><select th:field="*{publisher.id}">
+                        <td>Yayın Evi:</td><td><select required th:field="*{publisher.id}">
                         <option th:each="publisher : ${publisherList}"
                                 th:value="${publisher.id}"
                                 th:text="${publisher.publisherName}"></option>
