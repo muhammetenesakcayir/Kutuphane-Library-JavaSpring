@@ -1,7 +1,8 @@
 package com.kutuphane.controller;
 
-import com.kutuphane.model.*;
-import com.kutuphane.repository.BookRepository;
+import com.kutuphane.model.Author;
+import com.kutuphane.model.Book;
+import com.kutuphane.model.Publisher;
 import com.kutuphane.service.AuthorService;
 import com.kutuphane.service.BookService;
 import com.kutuphane.service.PublisherService;
@@ -21,13 +22,11 @@ public class BookController {
     private final BookService bookService;
     private final AuthorService authorService;
     private final PublisherService publisherService;
-    private final BookRepository bookRepository;
 
-    public BookController(BookService bookService, AuthorService authorService, PublisherService publisherService, BookRepository bookRepository) {
+    public BookController(BookService bookService, AuthorService authorService, PublisherService publisherService) {
         this.bookService = bookService;
         this.authorService = authorService;
         this.publisherService = publisherService;
-        this.bookRepository = bookRepository;
     }
 
 
@@ -39,8 +38,7 @@ public class BookController {
     }
 
     @GetMapping("/savebook")
-    public String getBook(@ModelAttribute("book") Book book, Model model)
-    {
+    public String getBook(@ModelAttribute("book") Book book, Model model) {
         List<Author> authorList = authorService.listAll();
         model.addAttribute("authorList", authorList);
         List<Publisher> publisherList = publisherService.listAll();
@@ -55,7 +53,7 @@ public class BookController {
     }
 
     @GetMapping("/update/{id}")
-    public String updateBook(@PathVariable("id") Long id , Model model) {
+    public String updateBook(@PathVariable("id") Long id, Model model) {
         Book book = bookService.get(id);
         model.addAttribute("update", book);
         List<Author> authorList = authorService.listAll();

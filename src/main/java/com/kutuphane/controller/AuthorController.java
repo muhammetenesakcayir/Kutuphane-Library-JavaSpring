@@ -37,7 +37,7 @@ public class AuthorController {
     }
 
     @GetMapping("/updateauthor/{id}")
-    public String updateAuthor(@PathVariable("id") Long id , Model model) {
+    public String updateAuthor(@PathVariable("id") Long id, Model model) {
         Author author = authorService.get(id);
         model.addAttribute("author", author);
         return "author/edit";

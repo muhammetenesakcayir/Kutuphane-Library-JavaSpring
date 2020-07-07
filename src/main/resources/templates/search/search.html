@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+            crossorigin="anonymous"></script>
+    <meta charset="utf-8"/>
+    <title>YayinEvi Listesi</title>
+</head>
+<body>
+<nav class="navbar navbar-light bg-light justify-content-between"><form>
+    <a class="btn btn-primary" href="/book">Kitap Sayfası</a>
+    <a class="btn btn-primary" href="/author">Yazar Sayfası</a>
+    <a class="btn btn-primary" href="/publisher">Yayınevi Sayfası</a></form>
+    <form class="form-inline my-2 my-lg-0" action="/search">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" name="ara">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Ara</button>
+    </form>
+</nav>
+<div class="table-responsive-xl">
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th></th>
+            <th scope="col">Kitap Adı</th>
+            <th></th>
+            <th scope="col">Kitap Seri Adı</th>
+            <th></th>
+            <th scope="col">ISBN No</th>
+            <th></th>
+            <th scope="col">Yazar Adı</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="table-light">
+        <tbody th:each="bookname:${bookname}">
+        <td></td>
+        <td th:text="${bookname.bookName}">a</td>
+        <td></td>
+        <td th:text="${bookname.bookSerialName}">a</td>
+        <td></td>
+        <td th:text="${bookname.isbnNo}">a</td>
+        <td></td>
+        <td th:text="${bookname.author.authorName}">a</td>
+        <td></td>
+        </tbody>
+        <tbody th:each="authorName:${authorName}">
+        <td></td>
+        <td th:text="${authorName.bookName}">a</td>
+        <td></td>
+        <td th:text="${authorName.bookSerialName}">a</td>
+        <td></td>
+        <td th:text="${authorName.isbnNo}">a</td>
+        <td></td>
+        <td th:text="${authorName.author.authorName}">a</td>
+        <td></td>
+        </tbody>
+        <tbody th:each="bookserail:${bookserail}">
+        <td></td>
+        <td th:text="${bookserail.bookName}">a</td>
+        <td></td>
+        <td th:text="${bookserail.bookSerialName}">a</td>
+        <td></td>
+        <td th:text="${bookserail.isbnNo}">a</td>
+        <td></td>
+        <td th:text="${bookserail.author.authorName}">a</td>
+        <td></td>
+        </tbody>
+        <tbody th:each="bookisbn:${bookisbn}">
+        <td></td>
+        <td th:text="${bookisbn.bookName}">a</td>
+        <td></td>
+        <td th:text="${bookisbn.bookSerialName}">a</td>
+        <td></td>
+        <td th:text="${bookisbn.isbnNo}">a</td>
+        <td></td>
+        <td th:text="${bookisbn.author.authorName}">a</td>
+        <td></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

@@ -10,8 +10,8 @@ import javax.validation.constraints.NotEmpty;
 public class Publisher {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-
     private long id;
+
     @NotEmpty
     private String publisherName;
     private String explanation;
