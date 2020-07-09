@@ -38,7 +38,7 @@ public class BookController {
     }
 
     @GetMapping("/savebook")
-    public String getBook(@ModelAttribute("book") Book book, Model model) {
+    public String getSaveBook(@ModelAttribute("book") Book book, Model model) {
         List<Author> authorList = authorService.listAll();
         model.addAttribute("authorList", authorList);
         List<Publisher> publisherList = publisherService.listAll();

@@ -26,12 +26,12 @@ public class AuthorController {
     }
 
     @GetMapping("/saveauthor")
-    public String getAuthor(@ModelAttribute("author") Author author) {
+    public String getSaveAuthor(@ModelAttribute("author") Author author) {
         return "author/create";
     }
 
     @PostMapping("/saveauthor")
-    public String saveAutohr(Author author) {
+    public String saveAuthor(Author author) {
         authorService.save(author);
         return "redirect:/author";
     }

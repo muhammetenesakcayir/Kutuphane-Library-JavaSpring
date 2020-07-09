@@ -25,7 +25,7 @@ public class PublisherController {
     }
 
     @GetMapping("/savepublisher")
-    public String getPublisher(@ModelAttribute("publisher") Publisher publisher) {
+    public String getSavePublisher(@ModelAttribute("publisher") Publisher publisher) {
         return "publisher/create";
     }
 
@@ -36,20 +36,20 @@ public class PublisherController {
     }
 
     @GetMapping("/updatepublisher/{id}")
-    public String updateYayinevi(@PathVariable("id") Long id , Model model) {
+    public String updatePublisher(@PathVariable("id") Long id , Model model) {
         Publisher publisher = publisherService.get(id);
         model.addAttribute("update", publisher);
         return "publisher/edit";
     }
 
     @GetMapping("/deletepublisher/{id}")
-    public String deleteYayinevi(@PathVariable("id") Long id) {
+    public String deletePublisher(@PathVariable("id") Long id) {
         publisherService.delete(id);
         return "redirect:/publisher";
     }
 
     @GetMapping(value = "/detailpublisher/{id}")
-    public String postDetailYayinevi(@PathVariable("id") Long id, Model model) {
+    public String detailPublisher(@PathVariable("id") Long id, Model model) {
         Publisher publisher = publisherService.get(id);
         model.addAttribute("publisher", publisher);
         return "publisher/detail";
