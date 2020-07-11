@@ -24,12 +24,12 @@
 
                 <div>
                     <div>
-                        <input type="text" th:field="*{username}" placeholder="Kullanıcı Adı" required
+                        <input type="text" th:field="*{username}" id="username" placeholder="Kullanıcı Adı" required
                                class="form-control cus-inp"/>
                     </div>
 
                     <div>
-                        <input type="password" th:field="*{password}" placeholder="Şifre" required
+                        <input type="password" th:field="*{password}" id="password" placeholder="Şifre" required
                                class="form-control cus-inp"/>
                     </div>
 
@@ -48,10 +48,9 @@
                 <div>
                     <p id="messages" style="color : red">
                         <th:block th:if="${param.error}">
-                            Username Var
+                            Bu Kullanıcı Adı Daha Önceden Alınmış
                         </th:block>
                     </p>
-
                 </div>
             </div>
         </form>

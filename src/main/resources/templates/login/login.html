@@ -17,17 +17,17 @@
 <body style="background-color:lightgray">
 <div class="container">
     <div class="row justify-content-center align-items-center" style="height:100vh">
-        <form th:action="@{/loginuser}" th:object="${users}" method="post">
+        <form th:action="@{/login}" method="post">
             <div class="form-group">
                 <h2 class="text-center mb-5"> Giriş </h2>
                 <div>
                     <div>
-                        <input type="text" th:field="*{username}" placeholder="Kullanıcı Adı" required
+                        <input type="text" name="username" placeholder="Kullanıcı Adı" required
                                class="form-control cus-inp"/>
                     </div>
 
                     <div>
-                        <input type="password" th:field="*{password}" placeholder="Şifre" required
+                        <input type="password" name="password" placeholder="Şifre" required
                                class="form-control cus-inp"/>
                     </div>
                 </div>
@@ -48,8 +48,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="text-center" th:style="${isSuccess == false ? 'display:block' : 'display:none'}">
-                    <p style="color: red"> Hatalı giriş yaptın!</p>
+                <div>
+                    <p id="messages" style="color : red">
+                        <th:block th:if="${param.error}">
+                            Hatalı Kullanıcı Adı veya Şifre
+                        </th:block>
+                    </p>
                 </div>
             </div>
         </form>

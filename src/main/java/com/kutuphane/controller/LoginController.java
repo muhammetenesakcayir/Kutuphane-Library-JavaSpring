@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.security.Principal;
+
 @Controller
 public class LoginController {
 
@@ -20,19 +22,17 @@ public class LoginController {
     }
 
     @GetMapping("/")
-    public String getlogin(@ModelAttribute("users") Users users, Model model) {
+    public String getlogin() {
         {
             return "login/login";
         }
     }
 
-    @PostMapping("loginuser")
-    public String loginUser(@ModelAttribute("users") Users users, Model model) {
-        boolean isSuccess = userService.login(users.getUsername(), users.getPassword());
-        if (isSuccess) {
+    @GetMapping("/login")
+    public String login(Principal principal) {
+        if(principal != null){
             return "redirect:/book";
         }
-        model.addAttribute("isSuccess", isSuccess);
         return "login/login";
     }
 

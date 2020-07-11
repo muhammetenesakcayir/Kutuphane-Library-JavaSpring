@@ -10,7 +10,7 @@ public class IndexController implements ErrorController {
 
     @RequestMapping(value = PATH)
     public String error() {
-        return "Hatalı İşlem";
+        return "Hatalı Islem Denemesi";
     }
 
     @Override

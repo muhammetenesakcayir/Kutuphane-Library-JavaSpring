@@ -4,6 +4,7 @@ import com.kutuphane.model.type.Role;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+import java.util.Set;
 
 @Entity
 public class Users {
@@ -18,8 +19,8 @@ public class Users {
     @NotEmpty
     private String email;
 
-    @Enumerated(EnumType.STRING)
-    private Role role;
+    @ManyToMany(fetch = FetchType.EAGER)
+    private Set<Role> roles;
 
     public long getId() {
         return id;
@@ -53,12 +54,11 @@ public class Users {
         this.email = email;
     }
 
-    public Role getRole() {
-        return role;
+    public Set<Role> getRoles() {
+        return roles;
     }
 
-    public void setRole(Role role) {
-        this.role = role;
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
     }
-
 }
